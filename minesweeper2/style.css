@@ -93,27 +93,29 @@ button:hover::after {
 /* 棋盘样式 */
 .board {
   display: grid;
-  gap: 3px;
+  gap: 2px;
   background: #dee2e6;
-  padding: 12px;
+  padding: 8px;
   border-radius: 8px;
   position: relative;
   grid-template-columns: repeat(var(--size, 10), 1fr);
-  max-height: calc(90vh - 250px);
+  max-height: calc(90vh - 200px);
   overflow-y: auto;
   min-height: 200px;
 }
 
 .cell {
   aspect-ratio: 1;
-  min-width: 24px;
+  min-width: 20px;
+  max-width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #adb5bd;
-  border: 2px solid #868e96;
-  border-radius: 4px;
+  border: 1px solid #868e96;
+  border-radius: 2px;
   font-weight: 700;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
