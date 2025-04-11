@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>扫雷游戏 v2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container" role="application">
+      <header>
+        <h1>扫雷游戏 v2</h1>
+        <p class="game-description">点击格子揭开，右键标记地雷</p>
+      </header>
+
+      <div class="game-controls">
+        <div class="difficulty-selector">
+          <button id="easy" aria-label="选择简单难度">简单</button>
+          <button id="medium" aria-label="选择中等难度">中等</button>
+          <button id="hard" aria-label="选择困难难度">困难</button>
+        </div>
+
+        <div class="game-status" aria-live="polite">
+          <div class="mines-count">
+            剩余雷数: <span id="mines-count">10</span>
+          </div>
+          <div class="timer">时间: <span id="timer">0</span></div>
+          <button id="pause" aria-label="暂停游戏">暂停</button>
+        </div>
+      </div>
+
+      <div class="board" id="board" aria-label="扫雷游戏棋盘"></div>
+
+      <div class="game-message" id="game-message" aria-live="assertive"></div>
+    </div>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
