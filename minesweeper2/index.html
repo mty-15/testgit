@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="game-container" role="application">
-      <header>
+      <header class="game-header">
         <h1>扫雷游戏 v2</h1>
         <p class="game-description">点击格子揭开，右键标记地雷</p>
       </header>
@@ -27,11 +27,29 @@
           <div class="timer">时间: <span id="timer">0</span></div>
           <button id="pause" aria-label="暂停游戏">暂停</button>
         </div>
+
+        <div class="game-board">
+          <div
+            class="board"
+            id="board"
+            role="game-board"
+            aria-label="扫雷游戏棋盘"
+            class="game-board"
+            style="border: 2px solid #e9ecef"
+          ></div>
+        </div>
+
+        <div class="game-messages">
+          <div
+            class="game-message"
+            id="game-message"
+            aria-live="assertive"
+            role="alert"
+          >
+            游戏结束！
+          </div>
+        </div>
       </div>
-
-      <div class="board" id="board" aria-label="扫雷游戏棋盘"></div>
-
-      <div class="game-message" id="game-message" aria-live="assertive"></div>
     </div>
 
     <script src="script.js" type="module"></script>
