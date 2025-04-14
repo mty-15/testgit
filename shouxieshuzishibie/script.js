@@ -4,6 +4,7 @@ const ctx = canvas.getContext("2d");
 const recognizeBtn = document.getElementById("recognizeBtn");
 const clearBtn = document.getElementById("clearBtn");
 const resultDiv = document.getElementById("result");
+const confidenceChart = document.getElementById("confidenceChart");
 
 // 设置画布背景为白色
 ctx.fillStyle = "white";
@@ -52,10 +53,10 @@ function clearCanvas() {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "black";
-  resultDiv.textContent = "识别结果: ";
+  resultDiv.innerHTML = "识别结果: ";
 }
 
-// 识别数字(调用真实API)
+// 识别数字(调用优化后的API)
 function recognizeDigit() {
   const imageData = canvas.toDataURL("image/png");
 
@@ -69,14 +70,15 @@ function recognizeDigit() {
     .then((response) => response.json())
     .then((data) => {
       if (data.error) {
-        resultDiv.textContent = `错误: ${data.error}`;
+        resultDiv.innerHTML = `错误: ${data.error}`;
       } else {
-        resultDiv.textContent = `识别结果: ${data.digit} (置信度: ${(
-          data.confidence * 100
-        ).toFixed(2)}%)`;
+        resultDiv.innerHTML = `
+                <strong>识别结果</strong>: ${data.digit}<br>
+                <strong>置信度</strong>: ${(data.confidence * 100).toFixed(2)}%
+            `;
       }
     })
     .catch((error) => {
-      resultDiv.textContent = `请求失败: ${error}`;
+      resultDiv.innerHTML = `请求失败: ${error}`;
     });
 }
